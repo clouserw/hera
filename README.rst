@@ -21,14 +21,14 @@ Manager through a maze of clicking:
 Basic Use
 ---------
 Just copy settings.py-dist to settings.py and fill in appropriate values.  Once
-setup, import into your project.  A simple example:
+setup, import into your project.  A simple example::
 
-       >>> from interface import Zeus
+    >>> from hera import Hera
 
-       >>> z = zeus()
+    >>> h = Hera()
 
-       # Empties the entire cache
-       >>> z.flushAll()
+    # Empties the entire cache
+    >>> h.flushAll()
 
 
 Tests

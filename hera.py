@@ -12,7 +12,7 @@ if settings.LOG_LEVEL:
     logging.basicConfig(level=settings.LOG_LEVEL)
 
 
-class Zeus:
+class Hera:
 
     def __init__(self, wsdl="System.Cache.wsdl"):
 
