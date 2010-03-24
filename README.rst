@@ -20,12 +20,11 @@ Manager through a maze of clicking:
 
 Basic Use
 ---------
-Just copy settings.py-dist to settings.py and fill in appropriate values.  Once
-setup, import into your project.  A simple example::
+A simple example::
 
     >>> from hera import Hera
 
-    >>> h = Hera()
+    >>> h = Hera(username, password, location)
 
     # Empties the entire cache
     >>> h.flushAll()
@@ -34,7 +33,8 @@ setup, import into your project.  A simple example::
 Tests
 -----
 
-After configuring the ``settings.py`` file, simply run ``fab test``.
+Copy ``test_settings.py-dist`` to ``test_settings.py`` and fill in all the
+values.  Then run ``fab test``.
 
 
 .. _Zeus Traffic Manager: http://www.zeus.com/

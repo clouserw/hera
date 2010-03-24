@@ -5,16 +5,9 @@ from suds.client import Client
 from suds.transport.http import HttpAuthenticated
 from suds.xsd.doctor import ImportDoctor, Import
 
-import settings
-
-if settings.LOG_LEVEL:
-    import logging
-    logging.basicConfig(level=settings.LOG_LEVEL)
-
-
 class Hera:
 
-    def __init__(self, wsdl="System.Cache.wsdl"):
+    def __init__(self, username, password, location, wsdl="System.Cache.wsdl"):
 
         # Sorry windows
         url = "file://%s" % os.path.abspath(os.path.join('wsdl', wsdl))
@@ -29,12 +22,10 @@ class Hera:
         imp.filter.add('http://soap.zeus.com/zxtm/1.1/')
         doctor = ImportDoctor(imp)
 
-        transporter = HttpAuthenticated(username=settings.USERNAME,
-                                        password=settings.PASSWORD)
+        transporter = HttpAuthenticated(username=username, password=password)
 
-        self.client = Client(url, doctor=doctor,
-                                  location=settings.LOCATION,
-                                  transport=transporter)
+        self.client = Client(url, doctor=doctor, location=location,
+                             transport=transporter)
 
     def flushAll(self):
         """Flushes everything in the system: all objects across all virtual

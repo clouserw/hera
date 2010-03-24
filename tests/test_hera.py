@@ -2,7 +2,7 @@ import unittest
 import urllib
 from urlparse import urlparse
 
-import settings
+import test_settings as settings
 from hera.hera import Hera
 
 
@@ -11,7 +11,8 @@ class TestInterface(unittest.TestCase):
     def setUp(self):
         if len(settings.TEST_URLS) < 2:
             self.fail("Please add at least 2 URLs we can test.")
-        self.hera = Hera()
+        self.hera = Hera(settings.USERNAME, settings.PASSWORD,
+                         settings.LOCATION)
 
     def _loadTestURLs(self):
         for url in settings.TEST_URLS:

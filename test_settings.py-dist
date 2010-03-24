@@ -1,0 +1,8 @@
+# You only need to fill this file out if you want to run the tests.
+
+USERNAME = ''
+PASSWORD = ''
+LOCATION = 'https://zeus:9090/soap'
+
+# We need at least two complete URLs that can be loaded/expired from the tests
+TEST_URLS = []
