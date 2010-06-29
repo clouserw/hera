@@ -10,7 +10,8 @@ class Hera:
     def __init__(self, username, password, location, wsdl="System.Cache.wsdl"):
 
         # Sorry windows
-        url = "file://%s" % os.path.abspath(os.path.join('hera', 'wsdl', wsdl))
+        cur = os.path.dirname(__file__)
+        url = "file://%s" % os.path.abspath(os.path.join(cur, 'wsdl', wsdl))
 
         # Apparently Zeus's wsdl is broken and we have to jimmy this thing in
         # manually.  See https://fedorahosted.org/suds/ticket/220 for details.
@@ -52,8 +53,11 @@ class Hera:
                                                           o.netloc,
                                                           o.path)
         if return_list:
-            return ["%s://%s%s" % (o.protocol, o.host, o.path)
+            if objects:
+                return ["%s://%s%s" % (o.protocol, o.host, o.path)
                                                         for o in objects]
+            else:
+                return []
 
 
     def getObjectByPattern(self, url):
