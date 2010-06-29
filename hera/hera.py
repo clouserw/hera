@@ -10,7 +10,7 @@ class Hera:
     def __init__(self, username, password, location, wsdl="System.Cache.wsdl"):
 
         # Sorry windows
-        url = "file://%s" % os.path.abspath(os.path.join('wsdl', wsdl))
+        url = "file://%s" % os.path.abspath(os.path.join('hera', 'wsdl', wsdl))
 
         # Apparently Zeus's wsdl is broken and we have to jimmy this thing in
         # manually.  See https://fedorahosted.org/suds/ticket/220 for details.

@@ -2,8 +2,8 @@ import unittest
 import urllib
 from urlparse import urlparse
 
-import test_settings as settings
-from hera.hera import Hera
+from hera.hera.hera import Hera
+from hera.examples.config import settings
 
 
 class TestInterface(unittest.TestCase):
