@@ -2,7 +2,7 @@ import unittest
 import urllib
 from urlparse import urlparse
 
-from hera.hera.hera import Hera
+from hera.hera import Hera
 from hera.examples.config import settings
 
 
