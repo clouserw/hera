@@ -13,7 +13,10 @@ def get_hera():
         username = settings.HERA['USERNAME']
         password = settings.HERA['PASSWORD']
         location = settings.HERA['LOCATION']
-    except (KeyError, AttributeError):
+
+        assert username and password and location
+
+    except (KeyError, AttributeError, AssertionError):
         log.debug("Attempted to connect to Hera, but it's not configured.")
         return False
 
