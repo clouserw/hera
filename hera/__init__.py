@@ -52,12 +52,11 @@ class Hera:
         r = self.client.service.clearMatchingCacheContent(o.scheme,
                                                           o.netloc,
                                                           o.path)
-        if return_list:
-            if objects:
-                return ["%s://%s%s" % (o.protocol, o.host, o.path)
-                                                        for o in objects]
-            else:
-                return []
+        if return_list and objects:
+            return ["%s://%s%s" % (o.protocol, o.host, o.path)
+                    for o in objects]
+        else:
+            return []
 
 
     def getObjectByPattern(self, url):
