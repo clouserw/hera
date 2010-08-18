@@ -55,7 +55,9 @@ def flush_urls(urls, prefix="", return_list=False):
 
         for url in urls:
             pattern = "%s%s" % (prefix, url)
-            flushed += hera.flushObjectsByPattern(pattern, return_list)
+            l = hera.flushObjectsByPattern(pattern, return_list)
+            if l:
+                flushed += l
 
     flushed = list(set(flushed))  # deduplicate
 
