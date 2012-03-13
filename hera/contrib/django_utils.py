@@ -45,6 +45,7 @@ def get_hera(creds={}):
 def flush_urls(urls, prefix="", return_list=False):
 
     flushed = []
+    pattern = ''
 
     for i in settings.HERA:
         hera = get_hera(i)
@@ -63,7 +64,7 @@ def flush_urls(urls, prefix="", return_list=False):
 
     if return_list:
         log.debug("Flushed %d URLs matching: %s" % (len(flushed), pattern))
-    else:
+    elif pattern:
         log.debug("Flushed URLs matching: %s" % (pattern))
 
     if return_list:
